@@ -20,9 +20,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Portal to Portal"
-config/description="Game made for FBLA!"
-run/main_scene="res://GUI/screens/TitleScreen.tscn"
+config/name="french game"
+config/description="french game"
+run/main_scene="res://levels/level1/Level1.tscn"
 config/icon="res://assets/portals/BluePortal_1.png"
 config/windows_native_icon="res://assets/portals/BluePortal_1.ico"
 

@@ -10,6 +10,7 @@ height = 63.4404
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_in"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -17,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -98,7 +99,6 @@ anims/start = SubResource( 4 )
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
