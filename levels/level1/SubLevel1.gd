@@ -3,7 +3,6 @@ extends Node2D
 func _ready():
 	OS.set_window_maximized(true)
 	# Set camera limit to the position of the bottom-most tile in the level
-	$Player/Camera2D.limit_bottom = 1080
 	$Player/Camera2D.limit_right = 4400
 
 	$Player/Sprite.visible = true

@@ -5,7 +5,7 @@ class_name Actor
 const FLOOR_NORMAL: = Vector2.UP
 
 # Speed
-export var speed := Vector2(300, 1000)
+export var speed := Vector2(200, 1000)
 # Force of gravity
 export var gravity: = 2500
 # Limit of how many pixels/s the player can be pulled down at

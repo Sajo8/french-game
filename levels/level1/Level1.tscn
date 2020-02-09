@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/parallaxBGs/ParallaxBGBlue.tscn" type="PackedScene" id=10]
 [ext_resource path="res://actors/Player.tscn" type="PackedScene" id=11]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 length = 1.5
 tracks/0/type = "value"
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=2]
 resource_name = "end"
 length = 0.001
 tracks/0/type = "value"
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 0.996078, 0.996078, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
@@ -93,8 +93,8 @@ position = Vector2( 505.193, 246.676 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"
-anims/fade_in = SubResource( 12 )
-anims/start = SubResource( 13 )
+anims/fade_in = SubResource( 1 )
+anims/start = SubResource( 2 )
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -102,7 +102,7 @@ layer = 100
 [node name="ColorRect" type="ColorRect" parent="TransitionLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 0.996078, 0.996078, 1 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
