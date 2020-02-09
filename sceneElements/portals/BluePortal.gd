@@ -28,7 +28,7 @@ func teleport():
 	if player:
 		# Stop the movement and animation of the player
 		player[0].set_physics_process(false)
-		player[0].get_node("AnimationPlayer").stop(false)
+		player[0].get_node("AnimatedSprite").playing = false
 
 	# Play the fade in animation and wait till it finishes
 	anim_player.play("fade_in")

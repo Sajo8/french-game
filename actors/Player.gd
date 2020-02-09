@@ -6,7 +6,7 @@ var _times_jumped := 0
 var _anim := ""
 
 func _physics_process(delta: float) -> void:
-	print(position)
+
 	# If we let go of the jump button mid-jump
 	var is_jump_interrupted := Input.is_action_just_released("jump") and _velocity.y < 0.0
 
@@ -127,3 +127,12 @@ func kill_player():
 
 	# Reload scene
 	get_tree().reload_current_scene()
+
+func fingerprint():
+	set_physics_process(false)
+
+	$AnimationPlayer.play("fingerprint")
+	yield($AnimationPlayer, "animation_finished")
+
+func endGame():
+	$end/AnimationPlayer.play("end")

@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="french game"
 config/description="french game"
-run/main_scene="res://levels/level1/Level1.tscn"
+run/main_scene="res://Start.tscn"
 config/icon="res://assets/portals/BluePortal_1.png"
 config/windows_native_icon="res://assets/portals/BluePortal_1.ico"
 

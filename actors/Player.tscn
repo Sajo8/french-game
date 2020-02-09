@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/included/Players/Player Blue/playerBlue_dead.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/jet_1.png" type="Texture" id=14]
 [ext_resource path="res://assets/jet_2.png" type="Texture" id=15]
 [ext_resource path="res://assets/jet_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/included/Players/Player Blue/playerBlue_switch1.png" type="Texture" id=17]
+[ext_resource path="res://assets/included/Players/Player Blue/playerBlue_switch2.png" type="Texture" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "death"
@@ -45,6 +47,9 @@ tracks/1/keys = {
 "values": [ false, true, false, true ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "endGame"
+
 [sub_resource type="Animation" id=2]
 resource_name = "fall"
 loop = true
@@ -62,7 +67,22 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "hit_ground"
+resource_name = "fingerprint"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -77,7 +97,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ), ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -93,7 +113,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -109,8 +129,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "swim"
+[sub_resource type="Animation" id=7]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -126,7 +145,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 9 ), ExtResource( 10 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 step = 0.05
@@ -143,7 +162,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": true,
@@ -151,8 +170,36 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 28.7803, 71.3607 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "end"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.996078, 0.996078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -161,19 +208,20 @@ script = ExtResource( 1 )
 gravity_limit = 750
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1, 0 )
 texture = ExtResource( 2 )
 region_rect = Rect2( -11, -3, 68, 60 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death = SubResource( 1 )
+anims/endGame = SubResource( 11 )
 anims/fall = SubResource( 2 )
-anims/hit_ground = SubResource( 3 )
-anims/idle = SubResource( 4 )
-anims/jump = SubResource( 5 )
-anims/swim = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/fingerprint = SubResource( 3 )
+anims/hit_ground = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/swim = SubResource( 7 )
+anims/walk = SubResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -188,11 +236,27 @@ limit_bottom = 0
 limit_smoothed = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 8 )
-frame = 1
+frames = SubResource( 9 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -99.692, 10.461 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="end" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="end"]
+anims/end = SubResource( 13 )
+
+[node name="TransitionLayer" type="CanvasLayer" parent="end"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="end/TransitionLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
