@@ -997,7 +997,7 @@ gravity_limit = 800
 [node name="end" type="Node2D" parent="."]
 
 [node name="Area2DEnd" type="Area2D" parent="end"]
-position = Vector2( 3864.75, 1124.25 )
+position = Vector2( 4143.7, 1280.46 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2DEnd"]
 position = Vector2( 84.7114, 654.779 )
