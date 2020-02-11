@@ -4,7 +4,7 @@ func _ready():
 	OS.set_window_maximized(true)
 
 	# Set camera limit to the position of the last tile in the level
-	$Player/Camera2D.limit_right = 1920
+	$Player/Camera2D.limit_right = 3250
 
 	$Player/Sprite.visible = false
 	$Player/AnimatedSprite.visible = true

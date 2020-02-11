@@ -3,7 +3,7 @@ extends Node2D
 func _ready():
 	OS.set_window_maximized(true)
 	# Set camera limit to the position of the bottom-most tile in the level
-	$Player/Camera2D.limit_right = 4400
+	$Player/Camera2D.limit_right = 7000
 
 	$Player/Sprite.visible = true
 	$Player/AnimatedSprite.visible = false
@@ -14,7 +14,7 @@ func _ready():
 
 	# If they just died, then set spawn coords at the start
 	if Globals.player_died:
-		Globals.red_respawn_position = Vector2(450, 2000)
+		$Player.position = Globals.red_respawn_position
 		Globals.player_died = false
 
 	# Set the player position to newly assigned spawn coords
@@ -27,6 +27,8 @@ func _ready():
 	if Globals.has_powerup("double_jump"):
 		$QuizPortal.enable_teleport = false
 
+	$startAnim/AnimationPlayer.play("fade_in")
+	yield($startAnim/AnimationPlayer, "animation_finished")
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.name == "Player":
@@ -39,6 +41,8 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	$Fingerprint/AnimationPlayer.play("fade_in")
 	yield($Fingerprint/AnimationPlayer, "animation_finished")
 	body.set_physics_process(true)
+
+	$Player.speed.x = 150
 
 func _on_Area2DEnd_body_entered(body: Node) -> void:
 	if body.name == "Player":

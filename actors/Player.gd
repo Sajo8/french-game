@@ -47,8 +47,8 @@ func calculate_move_velocity(
 
 	# If we're going up, then multiply the speed times how much the key is being held down
 	if direction.y == -1.0:
-		new_vel.y = speed.y * direction.y# * 1.15
-#		new_vel.x *= 2
+		new_vel.y = speed.y * direction.y
+		new_vel.x *= 2.5
 
 	# If player let go of jump key mid-jump, then set vertical velocity to 0 (gravity will be applied to it next frame)
 	if is_jump_interrupted:
@@ -111,6 +111,8 @@ func animate_player(linear_vel: Vector2) -> void:
 		$AnimationPlayer.play(_anim)
 
 func kill_player():
+	Globals.red_respawn_position = position
+	Globals.red_respawn_position.x -= 100
 	# Set a global variable, and remove any powerups they've gained this level
 	Globals.player_died = true
 	Globals.remove_powerups_gained_this_level()

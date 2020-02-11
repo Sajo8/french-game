@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://levels/level1/SubLevel1.gd" type="Script" id=1]
 [ext_resource path="res://assets/tilesets/bg.tres" type="TileSet" id=2]
@@ -30,13 +30,15 @@
 [ext_resource path="res://assets/included/Enemies/enemySpikey_4.png" type="Texture" id=28]
 [ext_resource path="res://assets/included/Players/Player Green/playerGreen_dead.png" type="Texture" id=29]
 [ext_resource path="res://sceneElements/spikes/Spikes.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/included/Players/Player Grey/playerGrey_dead.png" type="Texture" id=31]
+[ext_resource path="res://assets/included/Players/Player Red/playerRed_dead.png" type="Texture" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.8796, 36.5104 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_in"
-length = 1.5
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -44,7 +46,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 5.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.286275, 0.27451, 0.27451, 1 ), Color( 0.2, 0.109804, 0.109804, 0 ) ]
@@ -63,7 +65,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-length = 0.001
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -71,10 +73,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.286275, 0.27451, 0.27451, 1 ) ]
+"values": [ Color( 0.286275, 0.27451, 0.27451, 0 ), Color( 0.286275, 0.27451, 0.27451, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
@@ -182,7 +184,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( -160, 36 ), Vector2( -160, 47 ) ]
+"values": [ Vector2( 300, 36 ), Vector2( 300, 47 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -812,8 +814,226 @@ tracks/0/keys = {
 "values": [ ExtResource( 17 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=45]
+[sub_resource type="Animation" id=45]
+length = 2.0
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 18 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=46]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 103.968, 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ), ExtResource( 19 ), ExtResource( 25 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 4.75683 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.414042, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 13 ), ExtResource( 27 ), ExtResource( 13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.414042, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 5, -30 ), Vector2( 5, -25 ), Vector2( 5, -13 ), Vector2( 5, -25 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 28 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 24 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 22 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=55]
 extents = Vector2( 772.91, 10 )
+
+[sub_resource type="Animation" id=56]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="SubLevel1" type="Node2D"]
 script = ExtResource( 1 )
@@ -828,7 +1048,7 @@ tile_data = PoolIntArray( 917504, 13, 0, 917505, 13, 0, 917506, 13, 0, 917507, 1
 ]]
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 0, 0, -131050, 0, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -131046, 0, 0, -131045, 0, 0, -131044, 0, 0, -131043, 0, 0, -131042, 0, 0, -131041, 0, 0, -131040, 0, 0, -131039, 0, 0, -131038, 0, 0, -131037, 0, 0, -131036, 0, 0, -131035, 0, 0, -131034, 0, 0, -131033, 0, 0, -131032, 0, 0, -131031, 0, 0, -131030, 0, 0, -131029, 0, 0, -131028, 0, 0, -131027, 0, 0, -131026, 0, 0, -131025, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 655378, 13, 0, 786431, 0, 0, 720913, 10, 0, 720914, 3, 1, 720915, 3, 1, 720916, 10, 1, 720954, 13, 65538, 851967, 0, 0, 786436, 13, 0, 786487, 3, 0, 786488, 3, 1, 786489, 3, 1, 786490, 3, 1, 786491, 7, 1, 917503, 0, 0, 851968, 3, 0, 851969, 3, 1, 851970, 3, 1, 851971, 3, 1, 851972, 3, 1, 851973, 3, 1, 851974, 3, 2, 851977, 13, 0, 851985, 13, 2, 851992, 13, 65536, 852002, 13, 65538, 852011, 13, 65537, 852014, 13, 1, 852022, 13, 65538, 852023, 0, 0, 852024, 0, 0, 852025, 0, 0, 852026, 0, 0, 852027, 7, 65537, 852028, 7, 1, 983039, 0, 0, 917507, 12, 0, 917510, 8, 1, 917511, 3, 1, 917512, 3, 1, 917513, 3, 1, 917514, 3, 1, 917515, 3, 1, 917516, 3, 1, 917517, 3, 1, 917518, 3, 1, 917519, 3, 1, 917520, 3, 1, 917521, 3, 1, 917522, 3, 1, 917523, 3, 1, 917524, 3, 1, 917525, 3, 1, 917526, 3, 1, 917527, 3, 1, 917528, 3, 1, 917529, 3, 1, 917530, 3, 1, 917531, 3, 1, 917532, 3, 1, 917533, 3, 1, 917534, 3, 1, 917535, 3, 1, 917536, 3, 1, 917537, 3, 1, 917538, 3, 1, 917539, 3, 1, 917540, 3, 1, 917541, 3, 1, 917542, 3, 1, 917543, 3, 1, 917544, 3, 1, 917545, 3, 1, 917546, 3, 1, 917547, 3, 1, 917548, 3, 1, 917549, 3, 1, 917550, 3, 1, 917551, 3, 1, 917552, 3, 1, 917553, 3, 1, 917554, 3, 1, 917555, 3, 1, 917556, 3, 1, 917557, 3, 1, 917558, 3, 1, 917559, 8, 0, 917560, 0, 0, 917561, 0, 0, 917562, 0, 0, 917563, 0, 0, 917564, 7, 65537, 917565, 7, 1, 1048575, 0, 0, 983045, 12, 65536, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 12, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 12, 65536, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 12, 65536, 983078, 0, 0, 983079, 0, 0, 983080, 0, 0, 983081, 0, 0, 983082, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0, 983087, 0, 0, 983088, 0, 0, 983089, 0, 0, 983090, 0, 0, 983091, 0, 0, 983092, 12, 65536, 983093, 0, 0, 983094, 0, 0, 983095, 0, 0, 983096, 0, 0, 983097, 0, 0, 983098, 0, 0, 983099, 0, 0, 983100, 0, 0, 983101, 7, 65537, 983102, 7, 1, 1114111, 0, 0, 1048577, 12, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 12, 65536, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 12, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1048615, 0, 0, 1048616, 0, 0, 1048617, 0, 0, 1048618, 0, 0, 1048619, 12, 0, 1048620, 0, 0, 1048621, 0, 0, 1048622, 0, 0, 1048623, 0, 0, 1048624, 0, 0, 1048625, 0, 0, 1048626, 0, 0, 1048627, 0, 0, 1048628, 0, 0, 1048629, 0, 0, 1048630, 0, 0, 1048631, 0, 0, 1048632, 0, 0, 1048633, 0, 0, 1048634, 0, 0, 1048635, 0, 0, 1048636, 0, 0, 1048637, 0, 0, 1048638, 7, 65537, 1048639, 7, 1, 1179647, 0, 0, 1245183, 0, 0, 1310719, 0, 0, 1376255, 0, 0, 1441791, 0, 0, 1507327, 0, 0, 1572863, 0, 0, 1638399, 0, 0, 1703935, 0, 0, 1769471, 0, 0, 1835007, 0, 0, 1900543, 0, 0, 1966079, 0, 0, 2031615, 0, 0, 2097151, 0, 0, 2162687, 0, 0, 2228223, 0, 0 )
+tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 0, 0, -131050, 0, 0, -131049, 0, 0, -131048, 0, 0, -131047, 0, 0, -131046, 0, 0, -131045, 0, 0, -131044, 0, 0, -131043, 0, 0, -131042, 0, 0, -131041, 0, 0, -131040, 0, 0, -131039, 0, 0, -131038, 0, 0, -131037, 0, 0, -131036, 0, 0, -131035, 0, 0, -131034, 0, 0, -131033, 0, 0, -131032, 0, 0, -131031, 0, 0, -131030, 0, 0, -131029, 0, 0, -131028, 0, 0, -131027, 0, 0, -131026, 0, 0, -131025, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, 655359, 0, 0, 720895, 0, 0, 655393, 13, 0, 786431, 0, 0, 720928, 10, 0, 720929, 3, 1, 720930, 3, 1, 720931, 10, 1, 851967, 0, 0, 786436, 13, 0, 786529, 3, 0, 786530, 3, 1, 786531, 3, 1, 786532, 3, 1, 786533, 3, 1, 786534, 3, 1, 786535, 3, 1, 786536, 7, 1, 917503, 0, 0, 851968, 3, 0, 851969, 3, 1, 851970, 3, 1, 851971, 3, 1, 851972, 3, 1, 851973, 3, 1, 851974, 3, 2, 851977, 13, 0, 852000, 13, 2, 852007, 13, 65536, 852017, 13, 65538, 852026, 13, 65537, 852040, 13, 65538, 852065, 0, 0, 852066, 0, 0, 852067, 0, 0, 852068, 0, 0, 852069, 0, 0, 852070, 0, 0, 852071, 0, 0, 852072, 7, 65537, 852073, 7, 1, 983039, 0, 0, 917507, 12, 0, 917510, 8, 1, 917511, 3, 1, 917512, 3, 1, 917513, 3, 1, 917514, 3, 1, 917515, 3, 1, 917516, 3, 1, 917517, 3, 1, 917518, 3, 1, 917519, 3, 1, 917520, 3, 1, 917521, 3, 1, 917522, 3, 1, 917523, 3, 1, 917524, 3, 1, 917525, 3, 1, 917526, 3, 1, 917527, 3, 1, 917528, 3, 1, 917529, 3, 1, 917530, 3, 1, 917531, 3, 1, 917532, 3, 1, 917533, 3, 1, 917534, 3, 1, 917535, 3, 1, 917536, 3, 1, 917537, 3, 1, 917538, 3, 1, 917539, 3, 1, 917540, 3, 1, 917541, 3, 1, 917542, 3, 1, 917543, 3, 1, 917544, 3, 1, 917545, 3, 1, 917546, 3, 1, 917547, 3, 1, 917548, 3, 1, 917549, 3, 1, 917550, 3, 1, 917551, 3, 1, 917552, 3, 1, 917553, 3, 1, 917554, 3, 1, 917555, 3, 1, 917556, 3, 1, 917557, 3, 1, 917558, 3, 1, 917559, 3, 1, 917560, 3, 1, 917561, 3, 1, 917562, 3, 1, 917563, 3, 1, 917564, 3, 1, 917565, 3, 1, 917566, 3, 1, 917567, 3, 1, 917568, 3, 1, 917569, 3, 1, 917570, 3, 1, 917571, 3, 1, 917572, 3, 1, 917573, 3, 1, 917574, 3, 1, 917575, 3, 1, 917576, 3, 1, 917577, 3, 1, 917578, 3, 1, 917579, 3, 1, 917580, 3, 1, 917581, 3, 1, 917582, 3, 1, 917583, 3, 1, 917584, 3, 1, 917585, 3, 1, 917586, 3, 1, 917587, 3, 1, 917588, 3, 1, 917589, 3, 1, 917590, 3, 1, 917591, 3, 1, 917592, 3, 1, 917593, 3, 1, 917594, 3, 1, 917595, 3, 1, 917596, 3, 1, 917597, 3, 1, 917598, 3, 1, 917599, 3, 1, 917600, 3, 1, 917601, 8, 0, 917602, 0, 0, 917603, 12, 0, 917604, 0, 0, 917605, 0, 0, 917606, 0, 0, 917607, 0, 0, 917608, 0, 0, 917609, 7, 65537, 917610, 7, 1, 1048575, 0, 0, 983045, 12, 65536, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 12, 65536, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 12, 65536, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 983071, 0, 0, 983072, 0, 0, 983073, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 12, 65536, 983077, 0, 0, 983078, 0, 0, 983079, 0, 0, 983080, 0, 0, 983081, 0, 0, 983082, 0, 0, 983083, 0, 0, 983084, 0, 0, 983085, 0, 0, 983086, 0, 0, 983087, 0, 0, 983088, 0, 0, 983089, 0, 0, 983090, 0, 0, 983091, 0, 0, 983092, 12, 65536, 983093, 0, 0, 983094, 0, 0, 983095, 0, 0, 983096, 0, 0, 983097, 0, 0, 983098, 0, 0, 983099, 0, 0, 983100, 0, 0, 983101, 0, 0, 983102, 0, 0, 983103, 0, 0, 983104, 0, 0, 983105, 0, 0, 983106, 0, 0, 983107, 12, 65536, 983108, 0, 0, 983109, 0, 0, 983110, 0, 0, 983111, 0, 0, 983112, 0, 0, 983113, 0, 0, 983114, 0, 0, 983115, 0, 0, 983116, 12, 0, 983117, 0, 0, 983118, 0, 0, 983119, 0, 0, 983120, 0, 0, 983121, 0, 0, 983122, 0, 0, 983123, 0, 0, 983124, 0, 0, 983125, 0, 0, 983126, 0, 0, 983127, 12, 65536, 983128, 0, 0, 983129, 0, 0, 983130, 0, 0, 983131, 0, 0, 983132, 0, 0, 983133, 0, 0, 983134, 0, 0, 983135, 0, 0, 983136, 0, 0, 983137, 0, 0, 983138, 0, 0, 983139, 0, 0, 983140, 0, 0, 983141, 0, 0, 983142, 0, 0, 983143, 12, 65536, 983144, 0, 0, 983145, 0, 0, 983146, 7, 65537, 983147, 7, 1, 1114111, 0, 0, 1048577, 12, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 12, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 12, 65536, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1048615, 0, 0, 1048616, 0, 0, 1048617, 0, 0, 1048618, 12, 0, 1048619, 0, 0, 1048620, 0, 0, 1048621, 0, 0, 1048622, 0, 0, 1048623, 0, 0, 1048624, 0, 0, 1048625, 0, 0, 1048626, 0, 0, 1048627, 0, 0, 1048628, 0, 0, 1048629, 0, 0, 1048630, 0, 0, 1048631, 0, 0, 1048632, 0, 0, 1048633, 0, 0, 1048634, 12, 0, 1048635, 0, 0, 1048636, 0, 0, 1048637, 0, 0, 1048638, 0, 0, 1048639, 0, 0, 1048640, 0, 0, 1048641, 0, 0, 1048642, 0, 0, 1048643, 0, 0, 1048644, 0, 0, 1048645, 0, 0, 1048646, 0, 0, 1048647, 0, 0, 1048648, 12, 0, 1048649, 0, 0, 1048650, 0, 0, 1048651, 0, 0, 1048652, 0, 0, 1048653, 0, 0, 1048654, 0, 0, 1048655, 0, 0, 1048656, 0, 0, 1048657, 12, 65536, 1048658, 0, 0, 1048659, 0, 0, 1048660, 0, 0, 1048661, 0, 0, 1048662, 0, 0, 1048663, 0, 0, 1048664, 0, 0, 1048665, 0, 0, 1048666, 0, 0, 1048667, 0, 0, 1048668, 0, 0, 1048669, 0, 0, 1048670, 12, 65536, 1048671, 0, 0, 1048672, 0, 0, 1048673, 0, 0, 1048674, 0, 0, 1048675, 0, 0, 1048676, 0, 0, 1048677, 0, 0, 1048678, 0, 0, 1048679, 0, 0, 1048680, 0, 0, 1048681, 0, 0, 1048682, 0, 0, 1048683, 7, 65537, 1048684, 7, 1, 1179647, 0, 0, 1245183, 0, 0, 1310719, 0, 0, 1376255, 0, 0, 1441791, 0, 0, 1507327, 0, 0, 1572863, 0, 0, 1638399, 0, 0, 1703935, 0, 0, 1769471, 0, 0, 1835007, 0, 0, 1900543, 0, 0, 1966079, 0, 0, 2031615, 0, 0, 2097151, 0, 0, 2162687, 0, 0, 2228223, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -844,7 +1064,7 @@ enable_teleport = false
 [node name="Fingerprint" type="Node2D" parent="."]
 
 [node name="Sign" type="Sprite" parent="Fingerprint"]
-position = Vector2( 762.621, 863.51 )
+position = Vector2( 1260, 863.51 )
 scale = Vector2( 1.17647, 1.17647 )
 texture = ExtResource( 5 )
 
@@ -860,11 +1080,12 @@ scale = Vector2( 0.756669, 0.756669 )
 texture = ExtResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="Fingerprint"]
-position = Vector2( 763.358, 862.21 )
+position = Vector2( 1263.36, 862.21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fingerprint/Area2D"]
-position = Vector2( -0.836304, -3.34497 )
+position = Vector2( 0.641968, -3.34497 )
 shape = SubResource( 1 )
+one_way_collision_margin = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fingerprint"]
 autoplay = "start"
@@ -879,8 +1100,8 @@ follow_viewport_enable = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 813.57
-margin_right = 813.57
+margin_left = 1313.57
+margin_right = 1313.57
 theme = SubResource( 4 )
 color = Color( 0.286275, 0.27451, 0.27451, 1 )
 __meta__ = {
@@ -890,10 +1111,10 @@ __meta__ = {
 [node name="enemyCameras" type="Node2D" parent="."]
 
 [node name="Enemy" type="KinematicBody2D" parent="enemyCameras"]
-position = Vector2( 1387.81, 747.82 )
+position = Vector2( 1887.81, 747.82 )
 
 [node name="Sprite" type="Sprite" parent="enemyCameras/Enemy"]
-position = Vector2( -160, 36 )
+position = Vector2( 300, 36 )
 rotation = 3.14159
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 10 )
@@ -912,10 +1133,10 @@ anims/walking = SubResource( 13 )
 anims/walkingDeath = SubResource( 14 )
 
 [node name="Enemy2" type="KinematicBody2D" parent="enemyCameras"]
-position = Vector2( 1387.81, 747.82 )
+position = Vector2( 1887.81, 747.82 )
 
 [node name="Sprite" type="Sprite" parent="enemyCameras/Enemy2"]
-position = Vector2( 386.638, -32.5996 )
+position = Vector2( 846.638, -32.6 )
 rotation = 1.70535
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 18 )
@@ -934,10 +1155,10 @@ anims/walking = SubResource( 23 )
 anims/walkingDeath = SubResource( 24 )
 
 [node name="Enemy4" type="KinematicBody2D" parent="enemyCameras"]
-position = Vector2( 1387.81, 747.82 )
+position = Vector2( 1887.81, 747.82 )
 
 [node name="Sprite" type="Sprite" parent="enemyCameras/Enemy4"]
-position = Vector2( 1630.81, -14.9155 )
+position = Vector2( 1888.19, -14.915 )
 rotation = 1.309
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 18 )
@@ -956,13 +1177,13 @@ anims/walking = SubResource( 33 )
 anims/walkingDeath = SubResource( 34 )
 
 [node name="Enemy3" type="KinematicBody2D" parent="enemyCameras"]
-position = Vector2( 1387.81, 747.82 )
+position = Vector2( 1887.81, 747.82 )
 
 [node name="Sprite" type="Sprite" parent="enemyCameras/Enemy3"]
-position = Vector2( 959.009, -11.39 )
-rotation = -6.02139
+position = Vector2( 1419.01, -11.39 )
+rotation = 0.523598
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 25 )
+texture = ExtResource( 23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemyCameras/Enemy3"]
 autoplay = "fly"
@@ -977,30 +1198,86 @@ anims/swimmingDeath = SubResource( 42 )
 anims/walking = SubResource( 43 )
 anims/walkingDeath = SubResource( 44 )
 
+[node name="Enemy5" type="KinematicBody2D" parent="enemyCameras"]
+position = Vector2( 3536, 747.82 )
+
+[node name="Sprite" type="Sprite" parent="enemyCameras/Enemy5"]
+position = Vector2( 1416, -11.39 )
+rotation = -0.261799
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemyCameras/Enemy5"]
+autoplay = "fly"
+anims/float = SubResource( 45 )
+anims/floatDeath = SubResource( 46 )
+anims/fly = SubResource( 47 )
+anims/flyDeath = SubResource( 48 )
+anims/spikey = SubResource( 49 )
+anims/spikeyDeath = SubResource( 50 )
+anims/swimming = SubResource( 51 )
+anims/swimmingDeath = SubResource( 52 )
+anims/walking = SubResource( 53 )
+anims/walkingDeath = SubResource( 54 )
+
 [node name="ded" type="Node2D" parent="."]
 position = Vector2( 2907.81, 857.31 )
 
 [node name="Sprite" type="Sprite" parent="ded"]
 modulate = Color( 1, 1, 1, 0.490196 )
-position = Vector2( 23, 17.9166 )
+position = Vector2( 1156.19, 17.917 )
 texture = ExtResource( 29 )
+
+[node name="Sprite2" type="Sprite" parent="ded"]
+modulate = Color( 1, 1, 1, 0.490196 )
+position = Vector2( 1444.19, 17.917 )
+texture = ExtResource( 31 )
+
+[node name="Sprite3" type="Sprite" parent="ded"]
+modulate = Color( 1, 1, 1, 0.490196 )
+position = Vector2( 1900.19, 17.917 )
+texture = ExtResource( 32 )
 
 [node name="spikes" type="Node2D" parent="."]
 
 [node name="Spikes" parent="spikes" instance=ExtResource( 30 )]
-position = Vector2( 3201.27, 880.874 )
+position = Vector2( 5096, 880.874 )
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
-position = Vector2( 322.52, 798.28 )
-gravity_limit = 800
+[node name="Spikes2" parent="spikes" instance=ExtResource( 30 )]
+position = Vector2( 5552, 880.874 )
 
 [node name="end" type="Node2D" parent="."]
 
 [node name="Area2DEnd" type="Area2D" parent="end"]
-position = Vector2( 4143.7, 1280.46 )
+position = Vector2( 5755.43, 1234.21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2DEnd"]
-position = Vector2( 84.7114, 654.779 )
-shape = SubResource( 45 )
+position = Vector2( 748.57, 654.779 )
+shape = SubResource( 55 )
+
+[node name="startAnim" type="Node2D" parent="."]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="startAnim"]
+autoplay = "start"
+anims/fade_in = SubResource( 56 )
+anims/start = SubResource( 57 )
+
+[node name="TransitionLayer" type="CanvasLayer" parent="startAnim"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="startAnim/TransitionLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5008, 848 )
+speed = Vector2( 100, 1000 )
+gravity_limit = 800
 [connection signal="body_entered" from="Fingerprint/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="end/Area2DEnd" to="." method="_on_Area2DEnd_body_entered"]
